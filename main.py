@@ -118,9 +118,9 @@ fluid_dimension = [2, 2, 1]
 fluid_degree = [2, 2, 1]
 solid_dimension = [2, 2]
 solid_degree = [2, 2]
-fluid = Space(mesh_fluid, fluid_dimension, fluid_degree, "fluid")
-solid = Space(mesh_solid, solid_dimension, solid_degree, "solid")
-interface = Space(mesh_interface, solid_dimension, solid_degree, "interface")
+fluid = Space(mesh_fluid, fluid_dimension, fluid_degree, "fluid", inner_boundary)
+solid = Space(mesh_solid, solid_dimension, solid_degree, "solid", inner_boundary)
+interface = Space(mesh_interface, solid_dimension, solid_degree, "interface", inner_boundary)
 
 # Create tables of coordinates
 fluid.interface_coordinates = interface_coordinates(interface)

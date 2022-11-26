@@ -54,7 +54,6 @@ class Inner_boundary(SubDomain):
 
         return near(x[1], 0.19) or near(x[1], 0.21) or near(x[0], 0.6)
 
-
 # Define outflow
 class Outflow(SubDomain):
     def inside(self, x, on_boundary):
@@ -74,7 +73,7 @@ def zero_constant(dim):
 
 # Store space attributes
 class Space:
-    def __init__(self, mesh, dimension, degree, name):
+    def __init__(self, mesh, dimension, degree, name, inner_boundary):
 
         # Define mesh parameters
         self.mesh = mesh
@@ -82,7 +81,6 @@ class Space:
         self.normal_vector = FacetNormal(mesh)
 
         # Define measures
-        inner_boundary = Inner_boundary()
         outflow = Outflow()
         sub_domains = MeshFunction("size_t", mesh, mesh.topology().dim() - 1)
         sub_domains.set_all(0)
@@ -243,3 +241,4 @@ class Space:
                     cylinder_boundary,
                 ),
             ]
+
