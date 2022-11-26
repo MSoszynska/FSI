@@ -1,0 +1,22 @@
+name: Automated Test
+
+on:
+  push:
+    branches:
+      - main
+      - continuous-_integration
+
+jobs:
+  run-tests: 
+    run-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        python-version:['3.8', '3.9']
+    steps:
+      - name: Start FEniCS
+        run: docker run -ti -v $(pwd):/home/fenics/shared quay.io/fenicsproject/stable
+      - name: Run tests
+        run: python3 -m unittest coupling_test
+  
+
