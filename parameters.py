@@ -11,7 +11,7 @@ class Parameters:
         mu=Constant(2000000.0),
         gamma=Constant(1000.0),
         mean_velocity=2.0,
-        initial_time=6.0,
+        initial_time=0,
         time_step=0.0001,
         theta=0.5,
         global_mesh_size=2,
@@ -36,7 +36,7 @@ class Parameters:
         refinement_levels=0,
         partial_load=0,
         partial_compute=None,  # [starting_point, size]
-        initial_counter=600,
+        initial_counter=0,
         adjoint_test_epsilon=0.0,  # * sqrt(10),
     ):
 
